@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Poin Nasabah</title>
+</head>
+<body>
+    <h1>Report Buku Tabungan Nasabah</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="account_id">Account ID:</label>
+      <input type="number" name="account_id" required><br><br>
+      <label for="start_date">Start Date:</label>
+      <input type="date" name="start_date" required><br><br>
+      <label for="end_date">End Date:</label>
+      <input type="date" name="end_date" required><br><br>
+      <input type="submit" value="Generate Report">
+    </form>
+  
+    <!-- Tampilkan hasil input di bawah jika ada -->
+    <h2>Transaction Report</h2>
+    <table border="1">
+        <tr>
+            <th>Transaction Date</th>
+            <th>Description</th>
+            <th>Nominal Credit</th>
+            <th>Nominal Debit</th>
+            <th>Balance</th>
+        </tr>
+        {% for row in report_rows %}
+        <tr>
+            <td>{{ row.transaction_date }}</td>
+            <td>{{ row.description }}</td>
+            <td>{{ row.credit }}</td>
+            <td>{{ row.debit }}</td>
+            <td>{{ row.balance }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Tampilkan error di bawah jika ada -->
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

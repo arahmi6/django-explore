@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Poin Nasabah</title>
+</head>
+<body>
+    <h1>Input Data Nasabah</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Tampilkan hasil input di bawah jika ada -->
+    {% if hasil_input %}
+    <h2>Data Poin Nasabah {{ hasil_input.name }}:</h2>
+    <p>Account ID: {{ hasil_input.id }}</p>
+    <p>Name: {{ hasil_input.name }}</p>
+    <p>Poin: {{ total_points }}</p> <!-- Menampilkan total poin -->
+    {% endif %}
+
+    <!-- Tampilkan error di bawah jika ada -->
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

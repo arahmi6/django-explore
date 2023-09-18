@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Transaksi</title>
+</head>
+<body>
+    <h1>Input Transaksi</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="account_id">Account ID:</label>
+        <input type="number" name="account_id" required><br><br>
+        <label for="transaction_date">Transaction Date:</label>
+        <input type="date" name="transaction_date" required><br><br>
+        <label for="description">Description:</label>
+        <input type="text" name="description" required><br><br>
+        <label for="debit_credit_status">Debit/Credit Status:</label>
+        <select name="debit_credit_status" required>
+            <option value="D">Debit</option>
+            <option value="C">Credit</option>
+        </select><br><br>
+        <label for="amount">Amount:</label>
+        <input type="number" step="0.01" name="amount" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <!-- Tampilkan hasil input di bawah jika ada -->
+    {% if hasil_input %}
+    <h2>Data Transaksi:</h2>
+    <p>Account ID: {{ hasil_input.account_id_id }}</p>
+    <p>Transaction Date: {{ hasil_input.transaction_date }}</p>
+    <p>Description: {{ hasil_input.description }}</p>
+    <p>Debit/Credit Status: {{ hasil_input.debit_credit_status }}</p>
+    <p>Amount: {{ hasil_input.amount }}</p>
+    {% endif %}
+    <!-- Tampilkan error di bawah jika ada -->
+    {% if error_message %}
+    <h2>{{ error_message }}</h2>
+    {% endif %}
+</body>
+</html>

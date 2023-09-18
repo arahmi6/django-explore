@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        li a {
+            display: block;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        li a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menu Input</h1>
+    <ul>
+        <li><a href="{% url 'input_customer' %}">Input Customer</a></li>
+        <li><a href="{% url 'input_transaction' %}">Input Transaction</a></li>
+        <li><a href="{% url 'point_nasabah' %}">Point Nasabah</a></li>
+        <li><a href="{% url 'report_nasabah' %}">Report Cetak Buku Tabungan Nasabah</a></li>
+    </ul>
+</body>
+</html>
