@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data MongoDB</title>
+</head>
+<body>
+    <h1>Data dari MongoDB</h1>
+    <ul>
+        {% for item in hasil_input %}
+            <li>
+                <strong>ID Customer:</strong> {{ item.id }}<br>
+                <strong>Tahun:</strong> {{ item.tahun }}<br>
+                <strong>Total:</strong> {{ item.Total }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

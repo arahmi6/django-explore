@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer PostgreSQL</title>
+</head>
+<body>
+    <h1>Data Customer - PostgreSQL</h1>
+    {% if hasil_input %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Kota</th>
+            </tr>
+            {% for row in hasil_input %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.nama }}</td>
+                <td>{{ row.kota }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>

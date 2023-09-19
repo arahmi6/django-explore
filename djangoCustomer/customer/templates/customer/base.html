@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Django</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Gaya CSS untuk mengatur lebar navbar vertikal */
+        .vertical-navbar {
+            width: 200px; /* Sesuaikan lebar sesuai kebutuhan Anda */
+        }
+
+        /* Gaya CSS untuk mengatur spasi antara item navbar */
+        .nav-item {
+            margin-bottom: 10px; /* Sesuaikan spasi antara item sesuai kebutuhan Anda */
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 vertical-navbar bg-light">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'get_customer_data' %}">Customer PostgreSQL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'get_transaksi_data' %}">Transaksi Mongodb</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'get_redis_data' %}">Customer Redis</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main class="col-md-9">
+                <div class="container mt-4">
+                    {% block content %}
+                    <div class="jumbotron">
+                        <h1 class="display-4">Welcome!</h1>
+                    </div>
+                    {% endblock %}
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

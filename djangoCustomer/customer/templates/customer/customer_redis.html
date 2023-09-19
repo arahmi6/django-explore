@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Redis</title>
+</head>
+<body>
+    <h1>Data Customer - Redis</h1>
+    <ul>
+      {% for key, value in hasil_input.items %}
+          <li>
+              <strong>ID Pelanggan:</strong> {{ key }}<br>
+              <strong>Informasi Transaksi:</strong> {{ value }}
+          </li>
+      {% endfor %}
+  </ul>
+</body>
+</html>
